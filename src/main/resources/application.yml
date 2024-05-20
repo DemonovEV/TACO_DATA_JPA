@@ -1,0 +1,9 @@
+#tag::setDatabaseName[]
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+  application:
+    name: step3_DATA_JDBC
+
+
+#end::setDatabaseName[]
