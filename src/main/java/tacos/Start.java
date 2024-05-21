@@ -37,6 +37,12 @@ public class Start {
                 repo.save(new Ingredient("JACK", "Monterrey Jack", Type.CHEESE));
                 repo.save(new Ingredient("SLSA", "Salsa", Type.SAUCE));
                 repo.save(new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
+
+
+                jdbcTemplate.execute("delete FROM INGREDIENT_REF");
+                jdbcTemplate.execute("delete FROM TACO");
+                jdbcTemplate.execute("delete FROM TACO_ORDER");
+
             }
         };
     }
