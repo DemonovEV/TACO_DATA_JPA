@@ -11,7 +11,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import tacos.TacoOrder;
 import tacos.data.OrderRepository;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/orders")
