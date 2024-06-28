@@ -3,7 +3,7 @@ spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/test
   application:
-    name: step3_DATA_JDBC
+    name: step4_DATA_JPA
 
 
 #end::setDatabaseName[]
