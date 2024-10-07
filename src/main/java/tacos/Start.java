@@ -36,6 +36,11 @@ public class Start {
             repo.save(new Ingredient("SLSA", "Salsa", Type.SAUCE));
             repo.save(new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
 
+            repo.save(new Ingredient("TST1", "TEST1", Type.TEST));
+            repo.save(new Ingredient("TST2", "TEST2", Type.TEST));
+            repo.save(new Ingredient("TST3", "TEST3", Type.TEST));
+
+
 
             jdbcTemplate.execute("delete FROM INGREDIENT_REF");
             jdbcTemplate.execute("delete FROM TACO");

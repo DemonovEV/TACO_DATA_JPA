@@ -17,8 +17,8 @@
     <!-- end::all[] -->
 
     <span class="validationError"
-          th:errors="*{ingredients}"
-          th:if="${#fields.hasErrors('ingredients')}">Ingredient Error</span>
+          th:if="${#fields.hasErrors('ingredients')}"
+          th:errors="*{ingredients}">Ingredient Error</span>
 
     <!-- tag::all[] -->
     <div class="grid">
@@ -43,8 +43,8 @@
         <input th:field="*{name}" type="text"/>
         <!-- end::all[] -->
         <span class="validationError"
-              th:errors="*{name}"
-              th:if="${#fields.hasErrors('name')}">Name Error</span>
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">Name Error</span>
         <!-- tag::all[] -->
         <br/>
 
