@@ -24,7 +24,7 @@ public class Start {
 
         return args -> {
             jdbcTemplate.execute("delete from INGREDIENT");
-            repo.deleteAll();
+            //repo.deleteAll();
             repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
             repo.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
             repo.save(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));

@@ -19,12 +19,12 @@ public class Ingredient implements Persistable<String> {
     private String id;
     private String name;
     private Type type;
-
+/*
     @Override
     public boolean isNew() {
         return true;
     }
-
+*/
     @Getter
     public enum Type {
         WRAP("Designate your wrap:"),
