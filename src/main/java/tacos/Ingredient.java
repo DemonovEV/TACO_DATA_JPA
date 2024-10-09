@@ -13,18 +13,19 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-public class Ingredient implements Persistable<String> {
+public class Ingredient implements Persistable<String>
+{
 
     @Id
     private String id;
     private String name;
     private Type type;
-/*
+
     @Override
     public boolean isNew() {
         return true;
     }
-*/
+
     @Getter
     public enum Type {
         WRAP("Designate your wrap:"),
