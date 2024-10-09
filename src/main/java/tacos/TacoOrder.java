@@ -2,6 +2,7 @@ package tacos;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import jakarta.validation.constraints.Digits;
@@ -43,6 +44,7 @@ public class TacoOrder //implements Serializable
         //    message = "Must be formatted MM/YY")
     private String ccExpiration;
 
+    @Column("CC_CVV")
    // @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
