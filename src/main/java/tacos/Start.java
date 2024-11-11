@@ -23,7 +23,8 @@ public class Start {
     public CommandLineRunner dataLoader(IngredientRepository repo) {
 
         return args -> {
-            jdbcTemplate.execute("delete from INGREDIENT");
+            repo.deleteAll();
+            //jdbcTemplate.execute("delete from INGREDIENT");
             //repo.deleteAll();
             repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
             repo.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
@@ -42,9 +43,9 @@ public class Start {
 
 
 
-            jdbcTemplate.execute("delete FROM INGREDIENT_REF");
-            jdbcTemplate.execute("delete FROM TACO");
-            jdbcTemplate.execute("delete FROM TACO_ORDER");
+         //   jdbcTemplate.execute("delete FROM INGREDIENT_REF");
+          //  jdbcTemplate.execute("delete FROM TACO");
+           // jdbcTemplate.execute("delete FROM TACO_ORDER");
 
         };
     }
