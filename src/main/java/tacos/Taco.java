@@ -22,11 +22,11 @@ public class Taco {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
     private Long id;
 
+    private Date createdAt = new Date();
+
     @NotNull
     @Size(min = 5, message = "Name must be at least 5 characters long")
     private String name;
-
-    private Date createdAt = new Date();
 
     @Size(min = 1, message = "You must choose at least 1 ingredient")
     @ManyToMany()
