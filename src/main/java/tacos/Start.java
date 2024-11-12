@@ -42,10 +42,9 @@ public class Start {
             repo.save(new Ingredient("TST3", "TEST3", Type.TEST));
 
 
-
-         //   jdbcTemplate.execute("delete FROM INGREDIENT_REF");
-          //  jdbcTemplate.execute("delete FROM TACO");
-           // jdbcTemplate.execute("delete FROM TACO_ORDER");
+            //   jdbcTemplate.execute("delete FROM INGREDIENT_REF");
+            //  jdbcTemplate.execute("delete FROM TACO");
+            // jdbcTemplate.execute("delete FROM TACO_ORDER");
 
         };
     }

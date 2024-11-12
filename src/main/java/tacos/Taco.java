@@ -1,8 +1,5 @@
 package tacos;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +7,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +19,8 @@ import java.util.List;
 @EqualsAndHashCode(exclude = "createdAt")
 public class Taco {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)// TODO @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+// TODO @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
     private Long id;
 
     private Date createdAt = new Date();
