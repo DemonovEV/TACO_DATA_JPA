@@ -24,9 +24,8 @@ import java.util.List;
 public class Taco {
 
     @Id
-  //  @GeneratedValue(strategy = GenerationType.AUTO)
-// TODO
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
+  @GeneratedValue(strategy = GenerationType.AUTO)
+// TODO  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
     private Long id;
 
     private Date createdAt = new Date();
