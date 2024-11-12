@@ -4,7 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -17,10 +20,13 @@ import java.util.List;
 @Data
 @Entity
 @EqualsAndHashCode(exclude = "createdAt")
+
 public class Taco {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-// TODO @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
+  //  @GeneratedValue(strategy = GenerationType.AUTO)
+// TODO
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
     private Long id;
 
     private Date createdAt = new Date();
@@ -30,7 +36,13 @@ public class Taco {
     private String name;
 
     @Size(min = 1, message = "You must choose at least 1 ingredient")
-    @ManyToMany()
+    @ManyToMany
+    @JoinTable(name="INGREDIENT_COLLECTION",
+            joinColumns=
+            @JoinColumn(name="ref_to_taco", referencedColumnName="ID"),
+            inverseJoinColumns=
+            @JoinColumn(name="ref_to_ingredient", referencedColumnName="ID")
+    )
     private List<Ingredient> ingredients = new ArrayList<>();
     //private List<Ingredient> ingredients;
 /*
