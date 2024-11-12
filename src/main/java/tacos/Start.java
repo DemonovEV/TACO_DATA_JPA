@@ -27,11 +27,10 @@ public class Start {
 
         return args -> {
             orders.deleteAll();
+
             repo.deleteAll();
-            //jdbcTemplate.execute("delete from INGREDIENT");
-            //repo.deleteAll();
-            repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
-            repo.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
+            repo.save(new Ingredient("FLTO", "1lour Tortilla", Type.WRAP));
+            repo.save(new Ingredient("COTO", "1orn Tortilla", Type.WRAP));
             repo.save(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
             repo.save(new Ingredient("CARN", "Carnitas", Type.PROTEIN));
             repo.save(new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES));
@@ -46,9 +45,6 @@ public class Start {
             repo.save(new Ingredient("TST3", "TEST3", Type.TEST));
 
 
-            //   jdbcTemplate.execute("delete FROM INGREDIENT_REF");
-            //  jdbcTemplate.execute("delete FROM TACO");
-            // jdbcTemplate.execute("delete FROM TACO_ORDER");
 
         };
     }

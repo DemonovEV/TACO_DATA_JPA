@@ -1,11 +1,8 @@
 #tag::setDatabaseName[]
 
-
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/test2
-    password: 1
-    username: sa
+    url: jdbc:h2:tcp://localhost/~/test_data
   application:
     name: step3_DATA_JDBC
 logging:
