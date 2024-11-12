@@ -28,7 +28,7 @@ public class Ingredient {
         TEST("Choose TEST :"),
         HORSE("Choose your HORSE :");
 
-        String title;
+        private final String title;
 
         Type(String title) {
             this.title = title;
