@@ -1,7 +1,7 @@
 drop table  if  exists INGREDIENT_COLLECTION;
 drop table  if  exists TACO;
 drop table  if  exists TACO_ORDER;
-drop table  if  exists INGREDIENT ;
+drop table  if  exists INGREDIENT;
 
 /* Formatted on 12/11/2024 12:01:04 (QP5 v5.360) */
 CREATE TABLE if not    exists       Taco_Order
