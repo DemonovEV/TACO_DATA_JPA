@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import tacos.Ingredient.Type;
 import tacos.data.IngredientRepository;
+import tacos.data.OrderRepository;
 
 @SpringBootApplication
 public class Start {
@@ -20,9 +21,12 @@ public class Start {
     }
 
     @Bean
-    public CommandLineRunner dataLoader(IngredientRepository repo) {
+    public CommandLineRunner dataLoader(IngredientRepository repo,
+                                        OrderRepository orders
+                                        ) {
 
         return args -> {
+            orders.deleteAll();
             repo.deleteAll();
             //jdbcTemplate.execute("delete from INGREDIENT");
             //repo.deleteAll();
