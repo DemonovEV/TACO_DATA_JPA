@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class TacoOrder //implements Serializable
     // @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
+    @MappedCollection(
+            idColumn = "REF_TO_TACO_ORDER",
+            keyColumn = "TACO_ORDER_BY_ORDER")
     private List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco) {

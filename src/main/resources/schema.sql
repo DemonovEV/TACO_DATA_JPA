@@ -1,3 +1,8 @@
+drop table  if  exists INGREDIENT_COLLECTION;
+drop table  if  exists TACO;
+drop table  if  exists TACO_ORDER;
+drop table  if  exists INGREDIENT ;
+
 /* Formatted on 12/11/2024 12:01:04 (QP5 v5.360) */
 CREATE TABLE if not    exists       Taco_Order
 (
@@ -18,8 +23,8 @@ CREATE TABLE if not       exists             Taco
     id                identity /* PRIMARY KEY*/,
     created_at        TIMESTAMP NOT NULL,
     name              VARCHAR (50) NOT NULL,
-    taco_order        bigint NOT NULL REFERENCES Taco_Order (id),
-    taco_order_key    bigint NOT NULL
+    ref_to_taco_order    bigint NOT NULL REFERENCES Taco_Order (id),
+    taco_order_by_order    bigint NOT NULL
     );
 
 /* Formatted on 12/11/2024 12:07:14 (QP5 v5.360) */
@@ -31,9 +36,9 @@ CREATE TABLE if not    exists  Ingredient
     );
 
 /* Formatted on 12/11/2024 12:30:51 (QP5 v5.360) */
-CREATE TABLE if not    exists       Ref_To_Ingredient
+CREATE TABLE if not    exists       ingredient_collection
 (
-    ingredient    VARCHAR (4) NOT NULL REFERENCES Ingredient (id),
-    taco          bigint NOT NULL REFERENCES taco (id),
-    taco_key      bigint NOT NULL
+    ref_to_ingredient   VARCHAR (4) NOT NULL REFERENCES Ingredient (id), // defaut ingredient
+    ref_to_taco         bigint NOT NULL REFERENCES taco (id), //defaut taco
+    taco_by_order      bigint NOT NULL // defaut taco_key
     );

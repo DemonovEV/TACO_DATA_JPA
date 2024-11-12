@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public class Taco {
     private String name;
 
     @Size(min = 1, message = "You must choose at least 1 ingredient")
+    @MappedCollection(idColumn = "REF_TO_TACO", keyColumn = "TACO_BY_ORDER")
+    // ядро DATA делает INSERT INTO "REF_TO_INGREDIENT" ("INGREDIENT", "ref_to_taco", "taco_by_order") VALUES (?, ?, ?)
+    // имена в кавыччках. а H2 в ковычках принимает uppercase только
     private List<IngredientRef> ingredients = new ArrayList<>();
     //private List<Ingredient> ingredients;
 /*
