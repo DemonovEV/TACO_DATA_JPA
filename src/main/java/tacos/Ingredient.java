@@ -13,8 +13,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-public class Ingredient implements Persistable<String>
-{
+public class Ingredient implements Persistable<String> {
 
     @Id
     private String id;
