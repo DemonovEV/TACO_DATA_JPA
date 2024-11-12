@@ -26,10 +26,10 @@ public class Start {
                                         ) {
 
         return args -> {
-            orders.deleteAll();
+         //   orders.deleteAll();
+          //  repo.deleteAll();
 
-            repo.deleteAll();
-            repo.save(new Ingredient("FLTO", "1lour Tortilla", Type.WRAP));
+        /*    repo.save(new Ingredient("FLTO", "1lour Tortilla", Type.WRAP));
             repo.save(new Ingredient("COTO", "1orn Tortilla", Type.WRAP));
             repo.save(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
             repo.save(new Ingredient("CARN", "Carnitas", Type.PROTEIN));
@@ -42,7 +42,7 @@ public class Start {
 
             repo.save(new Ingredient("TST1", "TEST1", Type.TEST));
             repo.save(new Ingredient("TST2", "TEST2", Type.TEST));
-            repo.save(new Ingredient("TST3", "TEST3", Type.TEST));
+            repo.save(new Ingredient("TST3", "TEST3", Type.TEST));*/
 
 
 
