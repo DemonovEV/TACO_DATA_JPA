@@ -38,7 +38,7 @@ CREATE TABLE if not    exists  Ingredient
 /* Formatted on 12/11/2024 12:30:51 (QP5 v5.360) */
 CREATE TABLE if not    exists       ingredient_collection
 (
-    ref_to_ingredient   VARCHAR (4) NOT NULL REFERENCES Ingredient (id), // defaut ingredient
-    ref_to_taco         bigint NOT NULL REFERENCES taco (id), //defaut taco
-    taco_by_order      bigint NOT NULL // defaut taco_key
+    ref_to_ingredient   VARCHAR (4) NOT NULL REFERENCES Ingredient (id), /* defaut ingredient*/
+    ref_to_taco         bigint NOT NULL REFERENCES taco (id), /*defaut taco*/
+    taco_by_order      bigint NOT NULL /* defaut taco_key*/
     );

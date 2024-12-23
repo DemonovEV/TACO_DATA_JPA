@@ -9,5 +9,4 @@ import org.springframework.data.relational.core.mapping.Table;
 public class IngredientRef {
     @Column("REF_TO_INGREDIENT")
     private final String ingredient;
-
 }
