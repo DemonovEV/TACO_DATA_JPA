@@ -31,8 +31,9 @@ public class Taco {
 
     @Size(min = 1, message = "You must choose at least 1 ingredient")
     @MappedCollection(idColumn = "REF_TO_TACO", keyColumn = "TACO_BY_ORDER")
-    // ядро DATA делает INSERT INTO "REF_TO_INGREDIENT" ("INGREDIENT", "ref_to_taco", "taco_by_order") VALUES (?, ?, ?)
-    // имена в кавыччках. а H2 в ковычках принимает uppercase только
+    // ядро DATA делает                 INSERT INTO "INGREDIENT_COLLECTION" ("REF_TO_INGREDIENT", "TACO", "TACO_KEY") VALUES (?, ?, ?)
+    // MappedCollection делает          INSERT INTO "REF_TO_INGREDIENT" ("INGREDIENT", "ref_to_taco", "taco_by_order") VALUES (?, ?, ?)
+    // имена в кавычках. а H2 в ковычках принимает uppercase только
     private List<IngredientRef> ingredients = new ArrayList<>();
     //private List<Ingredient> ingredients;
 /*
