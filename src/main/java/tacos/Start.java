@@ -20,7 +20,7 @@ public class Start {
         SpringApplication.run(Start.class, args);
     }
 
-    @Bean
+  /*  @Bean
     public CommandLineRunner dataLoader(IngredientRepository repo,
                                         OrderRepository orders
                                         ) {
@@ -49,6 +49,6 @@ public class Start {
 
 
         };
-    }
+    }*/
 
 }

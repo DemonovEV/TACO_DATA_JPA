@@ -19,9 +19,7 @@ import java.util.List;
 @Data
 @Entity
 @EqualsAndHashCode(exclude = "createdAt")
-
 public class Taco {
-
     @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
 // TODO  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")

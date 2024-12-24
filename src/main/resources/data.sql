@@ -1,9 +1,11 @@
 delete
-from Ingredient_Ref;
+from INGREDIENT_COLLECTION;
 delete
 from Taco;
 delete
 from Taco_Order;
+delete
+from Ingredient;
 
 delete
 from Ingredient;
