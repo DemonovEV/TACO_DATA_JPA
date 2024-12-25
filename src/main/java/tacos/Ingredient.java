@@ -10,11 +10,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @AllArgsConstructor
-@NoArgsConstructor(force = true)
+@NoArgsConstructor
+@Entity
 public class Ingredient {
-
     @Id
     private String id;
     private String name;
@@ -32,11 +31,6 @@ public class Ingredient {
         HORSE("Choose your HORSE :");
 
         private final String title;
-
-        @Override
-        public String toString() {
-            return this.name();
-        }
 
         Type(String title) {
             this.title = title;
