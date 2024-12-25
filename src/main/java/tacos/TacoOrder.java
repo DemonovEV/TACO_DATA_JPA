@@ -47,7 +47,7 @@ public class TacoOrder //implements Serializable
     // @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
-    @MappedCollection( idColumn = "REF_TO_TACO_ORDER",            keyColumn = "TACO_ORDER_BY_ORDER")
+    @MappedCollection(idColumn = "REF_TO_TACO_ORDER", keyColumn = "TACO_ORDER_BY_ORDER")
     // ядро DATA делает                     INSERT INTO "TACO" ("CREATED_AT", "NAME", "TACO_ORDER", "TACO_ORDER_KEY") VALUES (?, ?, ?, ?)
     //MappedCollection задеет ключевые поля INSERT INTO "TACO" ("CREATED_AT", "NAME", "REF_TO_TACO_ORDER", "TACO_ORDER_BY_ORDER") VALUES (?, ?, ?, ?)
     // имена в кавычках. а H2 в ковычках принимает uppercase только
