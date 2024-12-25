@@ -1,6 +1,8 @@
 package tacos;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +18,7 @@ public class Ingredient {
     @Id
     private String id;
     private String name;
+    @Enumerated(EnumType.STRING)
     private Type type;
 
     @Getter
@@ -29,6 +32,11 @@ public class Ingredient {
         HORSE("Choose your HORSE :");
 
         private final String title;
+
+        @Override
+        public String toString() {
+            return this.name();
+        }
 
         Type(String title) {
             this.title = title;

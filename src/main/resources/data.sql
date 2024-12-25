@@ -7,8 +7,6 @@ from Taco_Order;
 delete
 from Ingredient;
 
-delete
-from Ingredient;
 insert into Ingredient (id, name, type)
 values ('FLT', 'Flour Tortilla  ', 'WRAP');
 insert into Ingredient (id, name, type)
