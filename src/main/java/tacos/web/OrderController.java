@@ -1,8 +1,10 @@
 package tacos.web;
 
 import jakarta.validation.Valid;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -20,13 +22,13 @@ import tacos.data.OrderRepository;
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
 @RequiredArgsConstructor
+@ConfigurationProperties(prefix = "taco.orders")
 public class OrderController {
 
     private final OrderRepository orderRepo;
 
-    //  @Getter
-    //  @Setter
-    @Value("${taco.orders.pageSize}")
+    @Getter
+    @Setter
     private int pageSize = 20;
 
     @GetMapping("/current")
