@@ -1,10 +1,7 @@
 package tacos.web;
 
 import jakarta.validation.Valid;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -22,14 +19,10 @@ import tacos.data.OrderRepository;
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
 @RequiredArgsConstructor
-@ConfigurationProperties(prefix = "taco.orders")
 public class OrderController {
 
     private final OrderRepository orderRepo;
-
-    @Getter
-    @Setter
-    private int pageSize = 20;
+    private final OrderProps orderProps;
 
     @GetMapping("/current")
     public String orderForm() {
@@ -52,7 +45,7 @@ public class OrderController {
     @GetMapping
     public String ordersForUser(
             Model model) {
-        Pageable pageable = PageRequest.of(0, pageSize);
+        Pageable pageable = PageRequest.of(0, orderProps.getPageSize());
         model.addAttribute("orders",
                 orderRepo.findAllByOrderByPlacedAtDesc(pageable));
         return "orderList";
