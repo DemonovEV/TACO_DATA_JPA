@@ -2,7 +2,11 @@ package tacos.web;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +23,11 @@ import tacos.data.OrderRepository;
 public class OrderController {
 
     private final OrderRepository orderRepo;
+
+    //  @Getter
+    //  @Setter
+    @Value("${taco.orders.pageSize}")
+    private int pageSize = 20;
 
     @GetMapping("/current")
     public String orderForm() {
@@ -37,4 +46,13 @@ public class OrderController {
         return "redirect:/";
     }
 
+
+    @GetMapping
+    public String ordersForUser(
+            Model model) {
+        Pageable pageable = PageRequest.of(0, pageSize);
+        model.addAttribute("orders",
+                orderRepo.findAllByOrderByPlacedAtDesc(pageable));
+        return "orderList";
+    }
 }
