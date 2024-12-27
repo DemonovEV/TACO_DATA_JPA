@@ -30,7 +30,7 @@ public class Taco {
     private String name;
 
     @Size(min = 1, message = "You must choose at least 1 ingredient")
-    @MappedCollection(idColumn = "REF_TO_TACO", keyColumn = "TACO_BY_ORDER")
+    @MappedCollection(idColumn = "ref_to_taco", keyColumn = "taco_by_order")
     // ядро DATA делает                 INSERT INTO "INGREDIENT_COLLECTION" ("REF_TO_INGREDIENT", "TACO", "TACO_KEY") VALUES (?, ?, ?)
     // MappedCollection делает          INSERT INTO "REF_TO_INGREDIENT" ("INGREDIENT", "ref_to_taco", "taco_by_order") VALUES (?, ?, ?)
     // имена в кавычках. а H2 в ковычках принимает uppercase только

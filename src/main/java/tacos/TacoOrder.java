@@ -43,11 +43,11 @@ public class TacoOrder //implements Serializable
     //    message = "Must be formatted MM/YY")
     private String ccExpiration;
 
-    @Column("CC_CVV")
+    @Column("cc_cvv")//     для PsotgreSQL важен регистр
     // @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
-    @MappedCollection(idColumn = "REF_TO_TACO_ORDER", keyColumn = "TACO_ORDER_BY_ORDER")
+    @MappedCollection(idColumn = "ref_to_taco_order", keyColumn = "taco_order_by_order")//     для PsotgreSQL важен регистр
     // ядро DATA делает                     INSERT INTO "TACO" ("CREATED_AT", "NAME", "TACO_ORDER", "TACO_ORDER_KEY") VALUES (?, ?, ?, ?)
     //MappedCollection задеет ключевые поля INSERT INTO "TACO" ("CREATED_AT", "NAME", "REF_TO_TACO_ORDER", "TACO_ORDER_BY_ORDER") VALUES (?, ?, ?, ?)
     // имена в кавычках. а H2 в ковычках принимает uppercase только
