@@ -1,33 +1,33 @@
 delete
-from INGREDIENT_COLLECTION;
+from ingredient_collection;
 delete
-from Taco;
+from taco;
 delete
-from Taco_Order;
+from taco_order;
 delete
-from Ingredient;
+from ingredient;
 
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('FLT', 'Flour Tortilla  ', 'WRAP');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('COTO', 'Corn Tortilsssla', 'WRAP');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('GRBF', 'Ground Beef', 'PROTEIN');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('CARN', 'Carnitas', 'PROTEIN');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('TMTO', 'Diced Tomatoes', 'VEGGIES');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('LETC', 'Lettuce', 'VEGGIES');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('CHED', 'Cheddar', 'CHEESE');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('JACK', 'Monterrey Jack', 'CHEESE');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('SLSA', 'Salsa', 'SAUCE');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('SRCR', 'Sour Cream', 'SAUCE');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('TST1', 'TEST1', 'TEST');
-insert into Ingredient (id, name, type)
+insert into ingredient (id, name, type)
 values ('TST2', 'TEST2', 'TEST');
