@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Ingredient {
     @Id
-    private String id1;
+    private String id;
     private String name;
     @Enumerated(EnumType.STRING) //В отсутствие аннотации @Enumerated Hibernate будет сохранять порядковый
             //(ORDINAL) номер значения
