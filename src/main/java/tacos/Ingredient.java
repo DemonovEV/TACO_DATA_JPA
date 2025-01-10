@@ -17,7 +17,8 @@ public class Ingredient {
     @Id
     private String id;
     private String name;
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) //В отсутствие аннотации @Enumerated Hibernate будет сохранять порядковый
+            //(ORDINAL) номер значения
     private Type type;
 
     @Getter
