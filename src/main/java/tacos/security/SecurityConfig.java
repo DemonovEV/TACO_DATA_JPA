@@ -42,19 +42,36 @@ public class SecurityConfig {
             throw new UsernameNotFoundException("User ‘" + username + "’ not found");
         };
     }
+    /*
+    @Bean
+        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-
+            return http
+                    .authorizeRequests()
+                    .requestMatchers("/design", "/orders")
+                    .hasRole("USER")
+                    .requestMatchers("/", "/**")
+                    .permitAll()
+                    .and()
+                    .formLogin(Customizer.withDefaults())
+                    .build();
+        }
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
+                {
+                    authorizationManagerRequestMatcherRegistry
+                            .requestMatchers("/design", "/orders")
+                            .hasRole("USER")
+                            .requestMatchers("/", "/**")
+                            .permitAll();
+                });
 
-        return http
-                .authorizeRequests()
-                .requestMatchers("/design", "/orders")
-                .hasRole("USER")
-                .requestMatchers("/", "/**")
-                .permitAll()
-                .and()
-                .formLogin(Customizer.withDefaults())
-                .build();
+        http
+                .formLogin(Customizer.withDefaults());
+
+        return http.build();
     }
 }
