@@ -81,7 +81,8 @@ public class SecurityConfig {
         http
                 .formLogin(httpSecurityFormLoginConfigurer ->
                         httpSecurityFormLoginConfigurer
-                                .loginProcessingUrl("/authenticate")
+                                .loginPage("/mylogin")
+                               // .loginProcessingUrl("/authenticate")
                                 .usernameParameter("user")
                                 .passwordParameter("pwd")
                                 .defaultSuccessUrl("/design")
