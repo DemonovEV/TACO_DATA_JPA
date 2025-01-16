@@ -3,6 +3,7 @@ package tacos.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -81,13 +82,24 @@ public class SecurityConfig {
         http
                 .formLogin(httpSecurityFormLoginConfigurer ->
                         httpSecurityFormLoginConfigurer
-                                .loginProcessingUrl("/authenticate")
+                                   .loginPage("/mylogin")
+                                // .loginProcessingUrl("/authenticate")
                                 .usernameParameter("user")
                                 .passwordParameter("pwd")
                                 .defaultSuccessUrl("/design")
                                 .failureUrl("/login?error123")
                 );
-        //    5.3.3 Использование сторонних систем аутентификации
+
+        http
+                .logout(httpSecurityLogoutConfigurer ->
+                        httpSecurityLogoutConfigurer.logoutSuccessUrl("/orders")
+                );
+      /*  http
+                .csrf(
+                        AbstractHttpConfigurer::disable
+                );*/
+
+
         return http.build();
     }
 }
