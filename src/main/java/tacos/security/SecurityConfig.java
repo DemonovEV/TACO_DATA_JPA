@@ -71,7 +71,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
                 {
                     authorizationManagerRequestMatcherRegistry
-                            .requestMatchers("/design", "/orders")
+                            .requestMatchers("/design", "/orders/current")
                             .hasRole("USER")
                             .requestMatchers("/", "/**")
                             .permitAll();
@@ -81,14 +81,19 @@ public class SecurityConfig {
         http
                 .formLogin(httpSecurityFormLoginConfigurer ->
                         httpSecurityFormLoginConfigurer
-                                .loginPage("/mylogin")
+                             //   .loginPage("/mylogin")
                                // .loginProcessingUrl("/authenticate")
                                 .usernameParameter("user")
                                 .passwordParameter("pwd")
                                 .defaultSuccessUrl("/design")
                                 .failureUrl("/login?error123")
                 );
-        //    5.3.3 Использование сторонних систем аутентификации
+
+        http.logout(httpSecurityLogoutConfigurer ->
+                httpSecurityLogoutConfigurer.logoutSuccessUrl("/orders")
+        );
+
+
         return http.build();
     }
 }
