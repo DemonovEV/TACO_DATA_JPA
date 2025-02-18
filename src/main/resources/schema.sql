@@ -2,14 +2,16 @@ drop table if exists ingredient_collection;
 drop table if exists ingredient;
 drop table if exists taco;
 drop table if exists taco_order;
+drop table if exists users;
 
 
 drop sequence if exists TACO_ORDER_SEQ;
 drop sequence if exists TACO_SEQ;
-
+drop sequence if exists USERS_SEQ;
 
 create sequence TACO_ORDER_SEQ iNCREMENT BY 50;
 create sequence TACO_SEQ iNCREMENT BY 50;
+create sequence USERS_SEQ START WITH 1 INCREMENT BY 50;
 
 CREATE TABLE if not exists taco_order
 (
@@ -44,4 +46,17 @@ CREATE TABLE if not exists ingredient_collection
 (
     ref_to_ingredient VARCHAR(4) NOT NULL REFERENCES Ingredient (id), /* defaut ingredient*/
     ref_to_taco       bigint     NOT NULL REFERENCES taco (id) /*defaut taco*/
+);
+
+CREATE TABLE users
+(
+    id           SERIAL PRIMARY KEY,
+    username     VARCHAR,
+    password     VARCHAR,
+    fullname     VARCHAR,
+    street       VARCHAR,
+    city         VARCHAR,
+    state        VARCHAR,
+    zip          VARCHAR,
+    phone_number VARCHAR
 );
