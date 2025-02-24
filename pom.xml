@@ -67,9 +67,8 @@
         <!-- end::springJdbcTemplate[] -->
         <!-- tag::h2database[] -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
         <!-- end::h2database[] -->
         <!--
