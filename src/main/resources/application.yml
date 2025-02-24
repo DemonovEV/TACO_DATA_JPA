@@ -5,9 +5,9 @@ spring:
     init:
       mode: always
   datasource:
-    url: jdbc:postgresql://localhost:5436/gele_main?currentSchema=taco_step4
-    username: gele_usr
-    password: gele_usr
+    url: jdbc:h2:tcp://localhost/~/${BASE_NAME}
+    username: sa
+    password: asd123
 
   application:
     name: step3_DATA_JDBC
