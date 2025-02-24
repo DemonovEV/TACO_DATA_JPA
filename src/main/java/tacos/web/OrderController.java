@@ -7,10 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import tacos.TacoOrder;
 import tacos.data.OrderRepository;
@@ -30,7 +27,13 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(@Valid TacoOrder order, Errors errors, SessionStatus sessionStatus) {
+    public String processOrder(
+            @ModelAttribute(name = "tacoOrder")// Spring сам дагадается,
+            // но если тут указать то в OrderForm.html тоже пройдет валидация
+            @Valid TacoOrder order,
+            Errors errors,
+            SessionStatus sessionStatus
+    ) {
         if (errors.hasErrors()) {
             return "orderForm";
         }
