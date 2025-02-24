@@ -39,7 +39,7 @@ public class SecurityConfig {
     }
 */
 
-
+// TODO Попробоовать тип UserDetailsService JdbcDaoImpl или  JdbcUserDetailsManager
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepo) {
         return username -> {
