@@ -31,7 +31,7 @@
     <!-- tag::allButValidation[] -->
     <h3>Deliver my taco masterpieces to...</h3>
     <label for="deliveryName">Name: </label>
-    <input th:field="*{deliveryName}" type="text"/>
+    <input th:field="*{deliveryName}" type="text" id="deliveryName"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
           th:errors="*{deliveryName}"
@@ -40,7 +40,7 @@
     <br/>
 
     <label for="deliveryStreet">Street address: </label>
-    <input th:field="*{deliveryStreet}" type="text"/>
+    <input th:field="*{deliveryStreet}" type="text" id="deliveryStreet"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
           th:errors="*{deliveryStreet}"
@@ -49,7 +49,7 @@
     <br/>
 
     <label for="deliveryCity">City: </label>
-    <input th:field="*{deliveryCity}" type="text"/>
+    <input th:field="*{deliveryCity}" type="text" id="deliveryCity"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
           th:errors="*{deliveryCity}"
@@ -58,7 +58,7 @@
     <br/>
 
     <label for="deliveryState">State: </label>
-    <input th:field="*{deliveryState}" type="text"/>
+    <input th:field="*{deliveryState}" type="text" id="deliveryState"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
           th:errors="*{deliveryState}"
@@ -67,7 +67,7 @@
     <br/>
 
     <label for="deliveryZip">Zip code: </label>
-    <input th:field="*{deliveryZip}" type="text"/>
+    <input th:field="*{deliveryZip}" type="text" id="deliveryZip"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
           th:errors="*{deliveryZip}"
@@ -78,7 +78,7 @@
     <h3>Here's how I'll pay...</h3>
     <!-- tag::validatedField[] -->
     <label for="ccNumber">Credit Card #: </label>
-    <input th:field="*{ccNumber}" type="text"/>
+    <input th:field="*{ccNumber}" type="text" id="ccNumber"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
           th:errors="*{ccNumber}"
@@ -88,7 +88,7 @@
     <br/>
 
     <label for="ccExpiration">Expiration: </label>
-    <input th:field="*{ccExpiration}" type="text"/>
+    <input th:field="*{ccExpiration}" type="text" id="ccExpiration"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
           th:errors="*{ccExpiration}"
@@ -97,7 +97,7 @@
     <br/>
 
     <label for="ccCVV">CVV: </label>
-    <input th:field="*{ccCVV}" type="text"/>
+    <input th:field="*{ccCVV}" type="text" id="ccCVV"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
           th:errors="*{ccCVV}"
