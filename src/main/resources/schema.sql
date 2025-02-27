@@ -58,5 +58,6 @@ CREATE TABLE users
     city         VARCHAR,
     state        VARCHAR,
     zip          VARCHAR,
-    phone_number VARCHAR
+    phone_number VARCHAR,
+    enabled      boolean
 );

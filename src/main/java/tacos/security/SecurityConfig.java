@@ -8,12 +8,14 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import tacos.data.UserRepository;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,12 +43,17 @@ public class SecurityConfig {
 
 // TODO Попробоовать тип UserDetailsService JdbcDaoImpl или  JdbcUserDetailsManager
     @Bean
-    public UserDetailsService userDetailsService(UserRepository userRepo) {
-        return username -> {
+    public UserDetailsService userDetailsService(UserRepository userRepo,
+                                                 DataSource dataSource) {
+       var result=new JdbcDaoImpl();
+       result.setDataSource(dataSource);
+       result.setAuthoritiesByUsernameQuery("select ?,'ROLE_USER'");
+       return result;
+        /* return username -> {
             var user = userRepo.findByUsername(username);
             if (user != null) return user;
             throw new UsernameNotFoundException("User ‘" + username + "’ not found");
-        };
+        };*/
     }
 
 
@@ -73,7 +80,7 @@ public class SecurityConfig {
                 {
                     authorizationManagerRequestMatcherRegistry
                             .requestMatchers("/design", "/orders")
-                            .hasRole("USER")
+                            .hasRole("ROLE_USER")
                             .requestMatchers("/", "/**")
                             .permitAll();
                 });
