@@ -1,22 +1,22 @@
 package tacos;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.MappedCollection;
-import org.springframework.data.relational.core.mapping.Table;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Data
-@Table
-public class TacoOrder //implements Serializable
-{
-    // private static final long serialVersionUID = 1L;
+@Entity
+public class TacoOrder implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+// Todo@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
     private Long id;
 
     private Date placedAt = new Date();
@@ -43,14 +43,13 @@ public class TacoOrder //implements Serializable
     //    message = "Must be formatted MM/YY")
     private String ccExpiration;
 
-    @Column("cc_cvv")//     для PsotgreSQL важен регистр
+    @Column(name = "CC_CVV")
     // @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
-    @MappedCollection(idColumn = "ref_to_taco_order", keyColumn = "taco_order_by_order")//     для PsotgreSQL важен регистр
-    // ядро DATA делает                     INSERT INTO "TACO" ("CREATED_AT", "NAME", "TACO_ORDER", "TACO_ORDER_KEY") VALUES (?, ?, ?, ?)
-    //MappedCollection задеет ключевые поля INSERT INTO "TACO" ("CREATED_AT", "NAME", "REF_TO_TACO_ORDER", "TACO_ORDER_BY_ORDER") VALUES (?, ?, ?, ?)
-    // имена в кавычках. а H2 в ковычках принимает uppercase только
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "REF_TO_TACO_ORDER", nullable = false)
+    // Добавляет колонку для связи insert into taco (ref_to_taco_order1,created_at,name,id) values (?,?,?,?)
     private List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco) {
