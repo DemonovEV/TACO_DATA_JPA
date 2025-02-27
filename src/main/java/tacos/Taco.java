@@ -1,22 +1,26 @@
 package tacos;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.MappedCollection;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Data
-@Entity
+@Table
+// Exclude createdAt from equals() method so that tests won't fail trying to
+// compare java.util.Date with java.sql.Timestamp (even though they're essentially
+// equal). Need to figure out a better way than this, but excluding this property
+// for now.
 @EqualsAndHashCode(exclude = "createdAt")
 public class Taco {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-// TODO  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
     private Long id;
 
     private Date createdAt = new Date();
@@ -26,14 +30,11 @@ public class Taco {
     private String name;
 
     @Size(min = 1, message = "You must choose at least 1 ingredient")
-    @ManyToMany
-    @JoinTable(name = "INGREDIENT_COLLECTION",
-            joinColumns =
-            @JoinColumn(name = "ref_to_taco", referencedColumnName = "ID"),
-            inverseJoinColumns =
-            @JoinColumn(name = "ref_to_ingredient", referencedColumnName = "ID")
-    )
-    private List<Ingredient> ingredients = new ArrayList<>();
+    @MappedCollection(idColumn = "ref_to_taco", keyColumn = "taco_by_order")
+    // ядро DATA делает                 INSERT INTO "INGREDIENT_COLLECTION" ("REF_TO_INGREDIENT", "TACO", "TACO_KEY") VALUES (?, ?, ?)
+    // MappedCollection делает          INSERT INTO "REF_TO_INGREDIENT" ("INGREDIENT", "ref_to_taco", "taco_by_order") VALUES (?, ?, ?)
+    // имена в кавычках. а H2 в ковычках принимает uppercase только
+    private List<IngredientRef> ingredients = new ArrayList<>();
     //private List<Ingredient> ingredients;
 /*
     public void addIngredient(Ingredient taco) {
