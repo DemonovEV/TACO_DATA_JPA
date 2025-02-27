@@ -1,19 +1,20 @@
 package tacos;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
-
 
 @Data
-@Table
-public class Ingredient //implements Persistable<String>
-{
-
+@Entity
+public class Ingredient {
     @Id
     private String id;
     private String name;
+    @Enumerated(EnumType.STRING) //В отсутствие аннотации @Enumerated Hibernate будет сохранять порядковый
+    //(ORDINAL) номер значения
     private Type type;
 
     @Getter
