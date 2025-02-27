@@ -29,10 +29,11 @@ CREATE TABLE if not exists taco_order
 
 CREATE TABLE if not exists taco
 (
-    id                SERIAL PRIMARY KEY,
-    created_at        TIMESTAMP   NOT NULL,
-    name              VARCHAR(50) NOT NULL,
-    ref_to_taco_order bigint      NOT NULL REFERENCES Taco_Order (id) /* Используется за счет  @JoinColumn(name = "REF_TO_TACO_ORDER")*/
+    id                  SERIAL PRIMARY KEY,
+    created_at          TIMESTAMP   NOT NULL,
+    name                VARCHAR(50) NOT NULL,
+    ref_to_taco_order   bigint      NOT NULL REFERENCES Taco_Order (id),
+    taco_order_by_order bigint      NOT NULL
 );
 
 CREATE TABLE if not exists ingredient
@@ -45,8 +46,10 @@ CREATE TABLE if not exists ingredient
 CREATE TABLE if not exists ingredient_collection
 (
     ref_to_ingredient VARCHAR(4) NOT NULL REFERENCES Ingredient (id), /* defaut ingredient*/
-    ref_to_taco       bigint     NOT NULL REFERENCES taco (id) /*defaut taco*/
+    ref_to_taco       bigint     NOT NULL REFERENCES taco (id), /*defaut taco*/
+    taco_by_order     bigint     NOT NULL /* defaut taco_key*/
 );
+
 
 CREATE TABLE users
 (
