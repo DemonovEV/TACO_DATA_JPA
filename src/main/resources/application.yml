@@ -12,6 +12,9 @@ spring:
   application:
     name: step3_DATA_JDBC
 
+  jpa:
+    hibernate:
+      ddl-auto: validate
 
 
 logging:

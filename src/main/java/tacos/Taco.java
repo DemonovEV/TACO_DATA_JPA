@@ -15,7 +15,12 @@ import java.util.List;
 @EqualsAndHashCode(exclude = "createdAt")
 public class Taco {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @SequenceGenerator(name = "generator_for_user_taco", sequenceName  = "taco_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator_for_user_taco")
+
+
+
 // TODO  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
     private Long id;
 
