@@ -1,25 +1,27 @@
 #tag::setDatabaseName[]
 
 spring:
-  sql:
-    init:
-      mode: always
+
   datasource:
-    url: jdbc:postgresql://localhost:5436/gele_main?currentSchema=taco_step4
+    url: jdbc:postgresql://localhost:5436/gele_main
     username: gele_usr
     password: gele_usr
+    hikari:
+      schema: taco_step4
 
   application:
     name: step3_DATA_JDBC
-
+#  sql:
+#    init:
+#      mode: always
   jpa:
+    show-sql: true
     hibernate:
-      ddl-auto: validate
-
-
-logging:
-  level:
-    sql: debug
+      ddl-auto: update
+#    generate-ddl: true
+#logging:
+#  level:
+#    sql: debug
 
 taco:
   orders:
