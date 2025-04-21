@@ -1,6 +1,12 @@
 #tag::setDatabaseName[]
-
 spring:
+  sql:
+    init:
+      mode: always
+
+
+  application:
+    name: step3_DATA_JDBC
 
 taco:
   orders:
