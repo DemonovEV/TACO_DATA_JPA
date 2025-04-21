@@ -3,21 +3,19 @@ package tacos;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 @Entity
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@Accessors(chain = true)
 
 public class Ingredient {
     @Id
-    @Column
-    public String id;
-    @Column
+    @Setter(AccessLevel.NONE)
+    public Integer id;
     private String name;
 
 }

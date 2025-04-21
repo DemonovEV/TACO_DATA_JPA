@@ -17,10 +17,8 @@ public class Start {
                  .addAnnotatedClass(Ingredient.class)
                  .buildSessionFactory().openSession();
         System.out.println(session);
-        System.out.println(session.find(Ingredient.class,"TMTO"));
-        var transaction = session.beginTransaction();
-        session.save(new Ingredient("one","two"));
-        transaction.commit();
+      //  System.out.println(session.find(Ingredient.class,2));
+
 
 
         //s.save(new Ingredient("ONE","TWO", Ingredient.Type.VEGGIES));
