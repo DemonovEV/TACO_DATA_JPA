@@ -1,5 +1,6 @@
 package tacos;
 
+import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +17,9 @@ public class Start {
 
     public static void main(String[] args) {
         SpringApplication.run(Start.class, args);
+      /*  new Configuration().buildSessionFactory()
+
+        new Configuration().configure().buildSessionFactory();*/
     }
 
     @Bean
