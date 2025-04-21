@@ -8,14 +8,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+//https://struchkov.dev/blog/ru/pagination-in-springboot/
 
 @Data
 @Entity
+    @SequenceGenerator(name ="generator_for_user_taco_order" , sequenceName = "taco_order_id_seq", allocationSize = 1)
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name ="generator_for_user_taco_order" , sequenceName = "taco_order_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator_for_user_taco_order")
 
 // Todo@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_OWN_SEQ")
