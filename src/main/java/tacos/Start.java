@@ -15,7 +15,7 @@ public class Start {
     public static void main(String[] args) {
         SpringApplication.run(Start.class, args);
         System.out.println(
-                Ingredient.class.isAssignableFrom(Ingredient.class)
+                Student.class.isAssignableFrom(Student.class)
         );
 
         Properties properties = new Properties();
@@ -30,15 +30,17 @@ public class Start {
 
         var session=
          new Configuration()
-                .addProperties(properties)
-                 .addAnnotatedClass(Ingredient.class)
+               // .addProperties(properties)
+                 .addAnnotatedClass(Student.class)
+                 .configure()
                  .buildSessionFactory().openSession();
         System.out.println(session);
-        System.out.println(session.find(Ingredient.class,2));
-
+        var fff=session.find(Student.class,2);
+        System.out.println(fff);
        var transaction = session.beginTransaction();
-        var obj=new Ingredient().setName("ONE");
-        session.save(obj);
+        var obj=new Student().setFirstName("as");
+        fff.setFirstName("HORRR");
+        session.save(fff);
        transaction.commit();
     }
 

@@ -1,8 +1,5 @@
 #tag::setDatabaseName[]
 spring:
-  sql:
-    init:
-      mode: always
 
 
   application:
