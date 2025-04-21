@@ -14,12 +14,17 @@ public class Start {
 
         var session =
                 new Configuration()
+                        .configure()
                         .addAnnotatedClass(Student.class)
                         .buildSessionFactory().openSession();
         System.out.println(session);
         System.out.println(session.find(Student.class, 2));
-        var ss = session.find(Student.class, 2);
-
+       Student ss = session.find(Student.class, 2);
+        var transaction = session.beginTransaction();
+session.persist(
+        new Student().setFirstName("Asd")
+);
+transaction.commit();
 
         //s.save(new Ingredient("ONE","TWO", Ingredient.Type.VEGGIES));
     }
